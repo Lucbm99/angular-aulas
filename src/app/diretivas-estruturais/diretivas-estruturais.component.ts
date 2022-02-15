@@ -18,6 +18,8 @@ export class DiretivasEstruturaisComponent implements OnInit {
     { nome: "Rosana Baradel", idade: 60 },
   ];
 
+  public nameSwitch: string = 'rosana';
+
   constructor() { }
 
   ngOnInit(): void {
