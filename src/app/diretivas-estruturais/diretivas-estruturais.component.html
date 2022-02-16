@@ -1,11 +1,34 @@
+<h2>ngIf</h2>
+
 <p *ngIf="idade; else elseBlock">True</p>
 
+<p *ngIf="cerveja === 'Amstel'; else noBeer">
+    {{ cerveja }}
+</p>
+
+<h4 *ngIf="isLogged && isNewUser; else isLogout">
+    Bem vindo ao portal XPTO, é um prazer!
+</h4>
+
+<h5 *ngIf="voltagem == 220; else differVolts">
+    Voltagem é igual a 220v.
+</h5>
 
 <ng-template #elseBlock>
     <p>False</p>
 </ng-template>
 
-<hr>
+<ng-template #noBeer>
+    Não há cervejas.
+</ng-template>
+
+<ng-template #isLogout>
+    <h4>O usuário já acessou a plataforma está deslogado do sistema.</h4>
+</ng-template>
+
+<ng-template #differVolts>
+    A voltagem é diferente de 220v.
+</ng-template> 
 
 <p *ngIf="idadeClick">
     True
@@ -16,19 +39,39 @@
 </p>
 
 <button (click)="onClick()">Clicar</button>
-
 <hr>
 
+
+<h2>ngFor</h2>
 <ul>
     <li *ngFor="let item of list; let i = index;" (click)="onClickEventList(i)">
         [ {{i}} ] - Nome: {{ item.nome }} - idade: {{ item.idade }}
     </li>
 </ul>
 
+<ul>
+    <li *ngFor="let team of teams; let i = index">
+        [ {{i}} ] - Nome time: {{ team.nomeTime }} - Estado: {{ team.estado }}
+    </li>
+</ul>
+
+<ul>
+    <li *ngFor="let teams of timesFutebolAmericano; let indice = index">
+        [{{ indice }}] Time FA: {{ teams.team }} - Cidade: {{ teams.city }}
+    </li>
+</ul>
+
+<ul>
+    <li *ngFor="let movel of moveis; let indice = index;">
+        [{{ indice }}] Nome móvel: {{ movel.nome }} - Marca: {{ movel.marca }} - Preço: R${{ movel.preco }}
+    </li>
+</ul>
+
+<button (click)="addTeamFA()">Add team</button>
 <button (click)="onClickAddList()">Add</button>
 
 <hr>
-
+<h2>ngSwitch</h2>
 <input type="text" [(ngModel)]="nameSwitch">
 <div [ngSwitch]="nameSwitch">
     <p *ngSwitchCase="'lucas'">
@@ -42,4 +85,57 @@
     <p *ngSwitchDefault>
         Deu ruim!!
     </p>
+
+
+    <div [ngSwitch]="month"> 
+
+        <p *ngSwitchCase="'Janeiro'">
+            Estamos no mês de Janeiro
+        </p> 
+        <p *ngSwitchCase="'Fevereiro'">
+            Estamos no mês de {{ month }}
+        </p> 
+        <p *ngSwitchCase="'Março'">
+            Estamos no mês de Março
+        </p> 
+        <p *ngSwitchCase="'Abril'">
+            Estamos no mês de Abril
+        </p> 
+    </div>
+
+    <div [ngSwitch]="dayOfWeek">
+        <p *ngSwitchCase="'Monday'">
+            Today it's {{ dayOfWeek }}.
+        </p>
+        <p *ngSwitchCase="'Tuesday'">
+            Today it's {{ dayOfWeek }}.
+        </p>
+        <p *ngSwitchCase="'Wednesday'">
+            Today it's {{ dayOfWeek }}.
+        </p>
+        <p *ngSwitchCase="'Friday'">
+            Today it's {{ dayOfWeek }}.
+        </p>
+        <p *ngSwitchDefault>
+            Dia inválido.
+        </p>
+    </div>
+
+    <div [ngSwitch]="candy">
+        <p *ngSwitchCase="'Brigadeiro'">
+            O doce é {{ candy }}
+        </p>
+        <p *ngSwitchCase="'Queijadinha'">
+            O doce é {{ candy }}
+        </p>
+        <p *ngSwitchCase="'Sorvete'">
+            O doce é {{ candy }}
+        </p>
+        <p *ngSwitchCase="'Mocotó'">
+            O doce é {{ candy }}
+        </p>
+        <p *ngSwitchDefault>
+            Doce fora da listagem.
+        </p>
+    </div>
 </div>

@@ -12,7 +12,7 @@ export class DiretivasAtributosComponent implements OnInit {
   public backgroundColor: string = "#ff0ff7";
 
   public nome: string = "";
-  public list: Array<{nome: string}> = [];
+  public list: Array<{nome: string}> = [{nome: 'Lucas'}];
 
 
   constructor() { }
