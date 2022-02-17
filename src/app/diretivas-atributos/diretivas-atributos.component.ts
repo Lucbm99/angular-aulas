@@ -14,6 +14,10 @@ export class DiretivasAtributosComponent implements OnInit {
   public nome: string = "";
   public list: Array<{nome: string}> = [{nome: 'Lucas'}];
 
+  public cores: boolean = false;
+  public time: string = 'Palmeiras';
+
+  public date:Date = new Date();
 
   constructor() { }
 
