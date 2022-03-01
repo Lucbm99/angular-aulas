@@ -17,7 +17,7 @@ import { Component, OnInit } from '@angular/core';
     </app-diretivas-atributos>
     
     <app-diretivas-atributos></app-diretivas-atributos>
-    <app-new-component></app-new-component>-->
+    <app-new-component></app-new-component>
   
     <app-input [contador]="addValue"></app-input>
     <br>
@@ -27,8 +27,10 @@ import { Component, OnInit } from '@angular/core';
       <h1>{{ getDados.nome }} </h1>
       <h2>{{ getDados.idade }} </h2>
     </ng-template>
-    <app-output (enviarDados)="setDados($event)"></app-output>
+    <app-output (enviarDados)="setDados($event)"></app-output>-->
     
+    <app-food-add></app-food-add>
+    <app-food-list></app-food-list>
     <router-outlet></router-outlet> 
   `
 })
