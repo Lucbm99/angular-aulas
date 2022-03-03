@@ -11,7 +11,7 @@ import { FoodListService } from 'src/app/services/food-list.service';
 })
 export class FoodListComponent implements OnInit {
 
-  public foodList: FoodList | any;
+  public foodList: Array<FoodList> = [];
 
   constructor(private foodListService: FoodListService) { }
 
@@ -22,8 +22,32 @@ export class FoodListComponent implements OnInit {
     );
 
     this.foodListService.emitEvent.subscribe(
-      res => alert(`Olha, você adicionou => ${res}`)
+      res => {
+        alert(`Olha, você adicionou => ${res.nome}`);
+        return this.foodList.push(res)
+      }
     );
   }
 
+  public foodListDelete(id:number) {
+    return this.foodListService.foodListDelete(id).subscribe(
+      res => {
+        this.foodList = this.foodList.filter(
+          item => {
+            return id !== item.id
+          }
+        )
+      },
+      error => error
+    );
+  }
+
+  public foodListEdit(value: string, id: number) {
+    return this.foodListService.foodListEdit(value, id).subscribe(
+      res => {
+        return console.log(res)
+      }, 
+      error => error
+    )
+  }
 }
