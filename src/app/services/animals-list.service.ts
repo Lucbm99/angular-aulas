@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { AnimalsList } from '../module/animals-list';
 
 @Injectable({
   providedIn: 'root'
@@ -25,8 +27,12 @@ export class AnimalsListService {
   // }
 
   //puxando do servidor fake 
-  public animalsList() {
-    return this.httpClient.get(`${this.url}/animals-list`);
+  public animalsList(): Observable<AnimalsList> {
+    return this.httpClient.get<AnimalsList>(`${this.url}/animals-list`)
+    .pipe(
+      response => response,
+      error => error
+    )
   }
 
   public animalsListAlert(value: string) {
