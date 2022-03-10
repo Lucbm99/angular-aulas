@@ -30,8 +30,11 @@ import { Component, OnInit } from '@angular/core';
     <app-output (enviarDados)="setDados($event)"></app-output>
     
     <app-food-add></app-food-add>
-    <app-food-list></app-food-list>-->
-    <app-forms></app-forms>
+    <app-food-list></app-food-list>
+    <app-forms></app-forms>-->
+    <app-animals-list></app-animals-list><hr>
+    <app-teams-list></app-teams-list><hr>
+    <app-sorvetes-list></app-sorvetes-list>
     <router-outlet></router-outlet> 
   `
 })
