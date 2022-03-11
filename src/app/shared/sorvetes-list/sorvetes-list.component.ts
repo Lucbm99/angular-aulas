@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SorveteList } from 'src/app/module/sorvete-list';
 import { SorvetesListService } from 'src/app/services/sorvetes-list.service';
 
 @Component({
@@ -8,12 +9,15 @@ import { SorvetesListService } from 'src/app/services/sorvetes-list.service';
 })
 export class SorvetesListComponent implements OnInit {
 
-  public listSorvetes: Array<string> = [];
+  public listSorvetes: SorveteList | any;
 
   constructor(private _sorvetesService: SorvetesListService) { }
 
   ngOnInit(): void {
-    this.listSorvetes = this._sorvetesService.getSorvetes();
+    this._sorvetesService.getSorvetes().subscribe(
+      res => this.listSorvetes = res,
+      error => error
+    );
   }
 
 }

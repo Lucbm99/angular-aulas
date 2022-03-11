@@ -1,4 +1,7 @@
 <h1>Lista de times</h1>
-<li *ngFor="let item of listTeams">
-    {{ item }}
-</li>
+<ul *ngFor="let item of listTeams">
+    <li>
+        Nome do time: {{ item.nome }}<br>
+        Estado: {{ item.estado }}
+    </li>
+</ul>

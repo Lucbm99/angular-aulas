@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TeamsList } from 'src/app/module/teams-list';
 import { TimesServiceService } from 'src/app/services/times-list.service';
 
 @Component({
@@ -8,12 +9,15 @@ import { TimesServiceService } from 'src/app/services/times-list.service';
 })
 export class TeamsListComponent implements OnInit {
 
-  public listTeams: Array<string> = [];
+  public listTeams: TeamsList | any;
 
   constructor(private _timesService: TimesServiceService) { }
 
   ngOnInit(): void {
-    this.listTeams = this._timesService.listTeams();
+    this._timesService.listTeams().subscribe(
+      res => this.listTeams = res,
+      error => error 
+    );
   }
 
 }

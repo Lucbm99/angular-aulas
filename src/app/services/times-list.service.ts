@@ -1,4 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { TeamsList } from '../module/teams-list';
 
 @Injectable({
   providedIn: 'root'
@@ -12,9 +15,15 @@ export class TimesServiceService {
     "Flamengo",
     "Santos"
   ]
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
-  public listTeams() {
-    return this.teamsList;
+  private urlTeams: string = 'http://localhost:3000';
+
+  public listTeams(): Observable<TeamsList> {
+    return this.httpClient.get<TeamsList>(`${this.urlTeams}/times-list`)
+    .pipe(
+      res => res,
+      error => error
+    )
   }
 }
