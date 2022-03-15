@@ -34,7 +34,9 @@ import { Component, OnInit } from '@angular/core';
     <app-forms></app-forms>-->
     <app-animals-list></app-animals-list><hr>
     <app-teams-list></app-teams-list><hr>
-    <app-sorvetes-list></app-sorvetes-list>
+    <app-sorvetes-list></app-sorvetes-list><hr>
+    <app-doces-list></app-doces-list><hr>
+    <app-heroes-list></app-heroes-list><hr>
     <router-outlet></router-outlet> 
   `
 })

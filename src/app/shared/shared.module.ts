@@ -12,6 +12,8 @@ import { FormsModule } from '@angular/forms';
 import { AnimalsListComponent } from './animals-list/animals-list.component';
 import { TeamsListComponent } from './teams-list/teams-list.component';
 import { SorvetesListComponent } from './sorvetes-list/sorvetes-list.component';
+import { DocesListComponent } from './doces-list/doces-list.component';
+import { HeroesListComponent } from './heroes-list/heroes-list.component';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { SorvetesListComponent } from './sorvetes-list/sorvetes-list.component';
     FoodAddComponent,
     AnimalsListComponent,
     TeamsListComponent,
-    SorvetesListComponent
+    SorvetesListComponent,
+    DocesListComponent,
+    HeroesListComponent
   ],
   exports: [
     NewComponentComponent,
@@ -33,7 +37,9 @@ import { SorvetesListComponent } from './sorvetes-list/sorvetes-list.component';
     FoodAddComponent,
     AnimalsListComponent,
     TeamsListComponent,
-    SorvetesListComponent
+    SorvetesListComponent,
+    DocesListComponent,
+    HeroesListComponent
   ],
   imports: [
     CommonModule,
