@@ -36,6 +36,7 @@ import { Component, OnInit } from '@angular/core';
     <app-teams-list></app-teams-list><hr>
     <app-sorvetes-list></app-sorvetes-list><hr>
     <app-doces-list></app-doces-list><hr>
+    <app-add-heroes></app-add-heroes>
     <app-heroes-list></app-heroes-list><hr>
     <router-outlet></router-outlet> 
   `

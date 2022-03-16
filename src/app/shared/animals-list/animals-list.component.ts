@@ -9,7 +9,7 @@ import { AnimalsListService } from 'src/app/services/animals-list.service';
 })
 export class AnimalsListComponent implements OnInit {
 
-  public animalsList: AnimalsList | any;
+  public animalsList: Array<AnimalsList> = [];
 
   constructor(private _animalsList: AnimalsListService) { }
 

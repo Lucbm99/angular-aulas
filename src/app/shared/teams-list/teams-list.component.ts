@@ -9,7 +9,7 @@ import { TimesServiceService } from 'src/app/services/times-list.service';
 })
 export class TeamsListComponent implements OnInit {
 
-  public listTeams: TeamsList | any;
+  public listTeams: Array<TeamsList> = [];
 
   constructor(private _timesService: TimesServiceService) { }
 

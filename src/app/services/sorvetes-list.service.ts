@@ -20,8 +20,8 @@ export class SorvetesListService {
 
   private urlIceCream: string = 'http://localhost:3000';
 
-  public getSorvetes(): Observable<SorveteList> {
-    return this.httpClient.get<SorveteList>(`${this.urlIceCream}/sorvetes-list`)
+  public getSorvetes(): Observable<Array<SorveteList>> {
+    return this.httpClient.get<Array<SorveteList>>(`${this.urlIceCream}/sorvetes-list`)
     .pipe(
       response => response,
       error => error

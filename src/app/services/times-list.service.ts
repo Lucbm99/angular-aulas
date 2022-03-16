@@ -19,8 +19,8 @@ export class TimesServiceService {
 
   private urlTeams: string = 'http://localhost:3000';
 
-  public listTeams(): Observable<TeamsList> {
-    return this.httpClient.get<TeamsList>(`${this.urlTeams}/times-list`)
+  public listTeams(): Observable<Array<TeamsList>> {
+    return this.httpClient.get<Array<TeamsList>>(`${this.urlTeams}/times-list`)
     .pipe(
       res => res,
       error => error

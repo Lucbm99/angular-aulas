@@ -9,7 +9,7 @@ import { DocesListService } from 'src/app/services/doces-list.service';
 })
 export class DocesListComponent implements OnInit {
 
-  public docesList: DocesList | any;
+  public docesList: Array<DocesList> = [];
   constructor(private _docesService: DocesListService) { }
 
   ngOnInit(): void {

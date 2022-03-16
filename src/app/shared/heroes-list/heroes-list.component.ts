@@ -9,7 +9,7 @@ import { HeroesListService } from 'src/app/services/heroes-list.service';
 })
 export class HeroesListComponent implements OnInit {
 
-  public listHeroes: Array<HeroesList> | any;
+  public listHeroes: Array<HeroesList> = [];
 
 
   constructor( private heroesService: HeroesListService) { }
@@ -18,6 +18,13 @@ export class HeroesListComponent implements OnInit {
     this.heroesService.getHeroes().subscribe(
       response => this.listHeroes = response,
       error => error
+    )
+
+    this.heroesService.emitEvent.subscribe(
+      response => {
+        alert(`Você adicionou => ${response.nome}`);
+        return this.listHeroes.push(response);
+      }
     )
   }
 

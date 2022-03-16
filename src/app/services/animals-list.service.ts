@@ -27,8 +27,8 @@ export class AnimalsListService {
   // }
 
   //puxando do servidor fake 
-  public animalsList(): Observable<AnimalsList> {
-    return this.httpClient.get<AnimalsList>(`${this.url}/animals-list`)
+  public animalsList(): Observable<Array<AnimalsList>> {
+    return this.httpClient.get<Array<AnimalsList>>(`${this.url}/animals-list`)
     .pipe(
       response => response,
       error => error

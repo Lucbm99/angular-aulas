@@ -14,6 +14,7 @@ import { TeamsListComponent } from './teams-list/teams-list.component';
 import { SorvetesListComponent } from './sorvetes-list/sorvetes-list.component';
 import { DocesListComponent } from './doces-list/doces-list.component';
 import { HeroesListComponent } from './heroes-list/heroes-list.component';
+import { AddHeroesComponent } from './add-heroes/add-heroes.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { HeroesListComponent } from './heroes-list/heroes-list.component';
     TeamsListComponent,
     SorvetesListComponent,
     DocesListComponent,
-    HeroesListComponent
+    HeroesListComponent,
+    AddHeroesComponent
   ],
   exports: [
     NewComponentComponent,
@@ -39,7 +41,8 @@ import { HeroesListComponent } from './heroes-list/heroes-list.component';
     TeamsListComponent,
     SorvetesListComponent,
     DocesListComponent,
-    HeroesListComponent
+    HeroesListComponent,
+    AddHeroesComponent
   ],
   imports: [
     CommonModule,

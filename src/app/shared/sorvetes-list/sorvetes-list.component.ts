@@ -9,7 +9,7 @@ import { SorvetesListService } from 'src/app/services/sorvetes-list.service';
 })
 export class SorvetesListComponent implements OnInit {
 
-  public listSorvetes: SorveteList | any;
+  public listSorvetes: Array<SorveteList> = [];
 
   constructor(private _sorvetesService: SorvetesListService) { }
 

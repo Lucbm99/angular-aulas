@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { HeroesList } from '../module/heroes-list';
 
 @Injectable({
@@ -10,15 +10,32 @@ export class HeroesListService {
 
   private listHeroes: Array<string> = [];
   private urlHeroes: string = "http://localhost:3000";
+  
+  public emitEvent = new EventEmitter();
 
   constructor(private httpClient: HttpClient) { }
 
-
-  public getHeroes(): Observable<HeroesList> {
-    return this.httpClient.get<HeroesList>(`${this.urlHeroes}/heroes-list`)
+  //pegar os dados 
+  public getHeroes(): Observable<Array<HeroesList>> {
+    return this.httpClient.get<Array<HeroesList>>(`${this.urlHeroes}/heroes-list`)
     .pipe(
       response => response,
       error => error
     )
   }
+
+  //adicionar os dados 
+  public heroesListAdd(value: string): Observable<HeroesList> {
+    return this.httpClient.post<HeroesList>(`${this.urlHeroes}/heroes-list`, {
+      nome: value
+    }).pipe(
+      response => response,
+      error => error
+    )
+  }
+
+  public heroesListAlert(value: HeroesList) {
+    return this.emitEvent.emit(value);
+  }
+
 }

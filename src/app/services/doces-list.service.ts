@@ -13,8 +13,8 @@ export class DocesListService {
 
   constructor(private _httpClient: HttpClient) { }
 
-  public getListDoces(): Observable<DocesList> {
-    return this._httpClient.get<DocesList>(`${this.urlDoces}/doces-list`)
+  public getListDoces(): Observable<Array<DocesList>> {
+    return this._httpClient.get<Array<DocesList>>(`${this.urlDoces}/doces-list`)
     .pipe(
       response => response,
       error => error
