@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { SorveteList } from './../module/sorvete-list';
 
 @Injectable({
@@ -18,6 +18,7 @@ export class SorvetesListService {
 
   constructor(private httpClient: HttpClient) {}
 
+  public sorveteEmit = new EventEmitter();
   private urlIceCream: string = 'http://localhost:3000';
 
   public getSorvetes(): Observable<Array<SorveteList>> {
@@ -26,5 +27,18 @@ export class SorvetesListService {
       response => response,
       error => error
     )
+  }
+
+  public listAddSorvetes(value: string): Observable<SorveteList> {
+    return this.httpClient.post<SorveteList>(`${this.urlIceCream}/sorvetes-list`, {
+      sabor: value
+    }).pipe(
+      response => response,
+      error => error
+    )
+  }
+
+  public alertListSorvetes(value: SorveteList) {
+    return this.sorveteEmit.emit(value);
   }
 }

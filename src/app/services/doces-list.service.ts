@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { DocesList } from '../module/doces-list';
 
 @Injectable({
@@ -9,6 +9,7 @@ import { DocesList } from '../module/doces-list';
 export class DocesListService {
 
   docesList: Array<string> = [];
+  public docesEmit = new EventEmitter();
   private urlDoces: string = 'http://localhost:3000';
 
   constructor(private _httpClient: HttpClient) { }
@@ -19,5 +20,18 @@ export class DocesListService {
       response => response,
       error => error
     )
+  }
+
+  public addListDoces(value: string): Observable<DocesList> {
+    return this._httpClient.post<DocesList>(`${this.urlDoces}/doces-list`, {
+      nome: value
+    }).pipe(
+      res => res,
+      error => error
+    )
+  }
+
+  public alertListDoces(value: DocesList) {
+    return this.docesEmit.emit(value);
   }
 }

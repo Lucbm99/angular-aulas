@@ -18,6 +18,13 @@ export class SorvetesListComponent implements OnInit {
       res => this.listSorvetes = res,
       error => error
     );
+
+    this._sorvetesService.sorveteEmit.subscribe(
+      response => {
+        alert(`Foi adicionado o sorvete de sabor: ${response.sabor}`);
+        return this.listSorvetes.push(response);
+      }
+    )
   }
 
 }

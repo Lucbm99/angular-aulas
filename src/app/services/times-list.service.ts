@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs';
 import { TeamsList } from '../module/teams-list';
 
@@ -17,13 +17,29 @@ export class TimesServiceService {
   ]
   constructor(private httpClient: HttpClient) { }
 
+  public teamsEmit = new EventEmitter();
   private urlTeams: string = 'http://localhost:3000';
 
+  //pegar os dados
   public listTeams(): Observable<Array<TeamsList>> {
     return this.httpClient.get<Array<TeamsList>>(`${this.urlTeams}/times-list`)
     .pipe(
       res => res,
       error => error
     )
+  }
+
+  //adicionar os dados
+  public addTeams(value: string): Observable<TeamsList> {
+    return this.httpClient.post<TeamsList>(`${this.urlTeams}/times-list`, {
+      nome: value
+    }).pipe(
+      response => response,
+      error => error
+    )
+  }
+
+  public addTimesAlert(value: TeamsList) {
+    return this.teamsEmit.emit(value);
   }
 }

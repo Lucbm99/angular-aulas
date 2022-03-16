@@ -17,6 +17,13 @@ export class DocesListComponent implements OnInit {
       res => this.docesList = res,
       error => error
     )
+
+    this._docesService.docesEmit.subscribe(
+      response => {
+        alert(`Doce adicionado foi: ${response.nome}`);
+        return this.docesList.push(response);
+      }
+    )
   }
 
 }

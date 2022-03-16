@@ -1,3 +1,4 @@
+import { AddDocesComponent } from './add-doces/add-doces.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http'
@@ -15,6 +16,8 @@ import { SorvetesListComponent } from './sorvetes-list/sorvetes-list.component';
 import { DocesListComponent } from './doces-list/doces-list.component';
 import { HeroesListComponent } from './heroes-list/heroes-list.component';
 import { AddHeroesComponent } from './add-heroes/add-heroes.component';
+import { AddSorvetesComponent } from './add-sorvetes/add-sorvetes.component';
+import { AddTimesComponent } from './add-times/add-times.component';
 
 
 @NgModule({
@@ -29,7 +32,10 @@ import { AddHeroesComponent } from './add-heroes/add-heroes.component';
     SorvetesListComponent,
     DocesListComponent,
     HeroesListComponent,
-    AddHeroesComponent
+    AddHeroesComponent,
+    AddSorvetesComponent,
+    AddTimesComponent,
+    AddDocesComponent
   ],
   exports: [
     NewComponentComponent,
@@ -42,7 +48,10 @@ import { AddHeroesComponent } from './add-heroes/add-heroes.component';
     SorvetesListComponent,
     DocesListComponent,
     HeroesListComponent,
-    AddHeroesComponent
+    AddHeroesComponent,
+    AddSorvetesComponent,
+    AddTimesComponent,
+    AddDocesComponent
   ],
   imports: [
     CommonModule,
