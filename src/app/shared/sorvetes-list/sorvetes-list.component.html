@@ -1,4 +1,15 @@
 <h1>Lista de sorvetes</h1>
-<li *ngFor="let item of listSorvetes">
-    {{ item.sabor }}
-</li>
+<ul *ngFor="let item of listSorvetes">
+    <li>
+        {{ item.id }} 
+        <input 
+            type="text"
+            [(ngModel)]="item.sabor"
+            (keyup)="editSorvetes(item.sabor, item.id)"
+        >
+
+        <button (click)="deleteSorvetes(item.id)">
+            Excluir
+        </button>
+    </li>
+</ul>

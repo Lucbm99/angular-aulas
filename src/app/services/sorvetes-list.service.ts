@@ -38,6 +38,23 @@ export class SorvetesListService {
     )
   }
 
+  public editSorvete(value: string, id: number): Observable<SorveteList> {
+    return this.httpClient.put<SorveteList>(`${this.urlIceCream}/sorvetes-list/${id}`, {
+      sabor: value
+    }).pipe(
+      res => res,
+      error => error 
+    )
+  }
+
+  public deleteSorvete(id: number): Observable<SorveteList> {
+    return this.httpClient.delete<SorveteList>(`${this.urlIceCream}/sorvetes-list/${id}`)
+    .pipe(
+      res => res,
+      error => error 
+    )
+  }
+
   public alertListSorvetes(value: SorveteList) {
     return this.sorveteEmit.emit(value);
   }

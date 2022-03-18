@@ -27,4 +27,25 @@ export class SorvetesListComponent implements OnInit {
     )
   }
 
+  public editSorvetes(value: string, id: number) {
+    this._sorvetesService.editSorvete(value, id).subscribe(
+      res => {
+        console.log(res)
+      },
+      error => error 
+    )
+  }
+
+  public deleteSorvetes(id:number) {
+    this._sorvetesService.deleteSorvete(id).subscribe(
+      res => {
+        this.listSorvetes = this.listSorvetes.filter(
+          sorvete => {
+            return sorvete.id !== id
+          }
+        )
+      },
+      error => error,
+    )
+  }
 }
