@@ -39,6 +39,23 @@ export class TimesServiceService {
     )
   }
 
+  public editTimes(value: string, id: number): Observable<TeamsList> {
+    return this.httpClient.put<TeamsList>(`${this.urlTeams}/times-list/${id}`, {
+      nome: value
+    }).pipe(
+      res => res,
+      error => error
+    )
+  } 
+
+  public deleteTimes(id: number): Observable<TeamsList> {
+    return this.httpClient.delete<TeamsList>(`${this.urlTeams}/times-list/${id}`)
+    .pipe(
+      res => res,
+      error => error 
+    )
+  }
+
   public addTimesAlert(value: TeamsList) {
     return this.teamsEmit.emit(value);
   }

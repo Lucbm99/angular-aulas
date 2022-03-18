@@ -28,4 +28,25 @@ export class HeroesListComponent implements OnInit {
     )
   }
 
+  public editHeroes(value: string, id: number) {
+    return this.heroesService.editHeroes(value, id).subscribe(
+      response => {
+        return console.log(response)
+      },
+      error => error
+    )
+  }
+
+  public deleteHeroes(id: number) {
+    return this.heroesService.deleteHeroes(id).subscribe(
+      response => {
+        this.listHeroes = this.listHeroes.filter(
+          hero => {
+            return hero.id !== id
+          }
+        )
+      },
+      error => error
+    )
+  }
 }

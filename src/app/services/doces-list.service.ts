@@ -30,8 +30,25 @@ export class DocesListService {
       error => error
     )
   }
+  public editDoces(value: string, id: number): Observable<DocesList> {
+    return this._httpClient.put<DocesList>(`${this.urlDoces}/doces-list/${id}`, {
+      nome: value
+    }).pipe(
+      res => res,
+      error => error,
+    )
+  }
 
+
+  public deleteDoces(id:number): Observable<DocesList> {
+    return this._httpClient.delete<DocesList>(`${this.urlDoces}/doces-list/${id}`)
+    .pipe(
+      res => res,
+      error => error 
+    )
+  }
   public alertListDoces(value: DocesList) {
     return this.docesEmit.emit(value);
   }
+  
 }

@@ -1,4 +1,13 @@
 <h1>Lista de heróis</h1>
 <ul *ngFor="let hero of listHeroes">
-    <li>Nome do herói: {{ hero.nome }}</li>
+    <li>
+        <input 
+            type="text"
+            [(ngModel)]="hero.nome"
+            (keyup)="editHeroes(hero.nome, hero.id)"
+        >
+        <button (click)="deleteHeroes(hero.id)">
+            Excluir
+        </button>
+    </li>
 </ul>

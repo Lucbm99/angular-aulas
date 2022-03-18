@@ -34,6 +34,23 @@ export class HeroesListService {
     )
   }
 
+
+  public editHeroes(value: string, id: number): Observable<HeroesList> {
+    return this.httpClient.put<HeroesList>(`${this.urlHeroes}/heroes-list/${id}`, {
+      nome: value
+    }).pipe(
+      res => res,
+      error => error
+    )
+  }
+
+  public deleteHeroes(id: number): Observable<HeroesList> {
+    return this.httpClient.delete<HeroesList>(`${this.urlHeroes}/heroes-list/${id}`).
+    pipe(
+      res => res,
+      error => error,
+    )
+  }
   public heroesListAlert(value: HeroesList) {
     return this.emitEvent.emit(value);
   }

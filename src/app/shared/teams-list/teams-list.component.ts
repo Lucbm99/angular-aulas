@@ -28,4 +28,25 @@ export class TeamsListComponent implements OnInit {
     )
   }
 
+  public editTimes(value: string, id: number) {
+    this._timesService.editTimes(value, id).subscribe(
+      res => {
+        console.log(res);
+      },
+      error => error 
+    )
+  }
+
+  public deleteTimes(id: number) {
+    this._timesService.deleteTimes(id).subscribe(
+      response => {
+        this.listTeams = this.listTeams.filter(
+          team => {
+            return team.id !== id
+          }
+        )
+      },
+      error => error
+    )
+  }
 }

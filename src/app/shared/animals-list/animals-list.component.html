@@ -1,6 +1,14 @@
 <h1>Lista de animais</h1>
 <ul *ngFor="let item of animalsList">
-    <li>Nome do animal: {{ item.nome }} </li>
-    <li>Classe: {{ item.classe }} </li>
-    <li>Patas: {{ item.patas }} </li>
+    <li>
+        [{{ item.id }}] - 
+        <input 
+            type="text" 
+            [(ngModel)]="item.nome" 
+            (keyup)="editAnimalsList(item.nome, item.id)"
+        >
+        <button (click)="foodListDelete(item.id)">
+            Excluir
+        </button>
+    </li>
 </ul>

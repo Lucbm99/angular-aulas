@@ -1,4 +1,13 @@
 <h1>Lista de doces</h1>
 <ul *ngFor="let doce of docesList">
-    <li>{{ doce.nome }}</li>
+    <li>
+        <input 
+            type="text"
+            [(ngModel)]="doce.nome"
+            (keyup)="editDoces(doce.nome, doce.id)"
+        >
+        <button (click)="deleteDoces(doce.id)">
+            Excluir
+        </button>
+    </li>
 </ul>

@@ -10,18 +10,13 @@ export class AnimalsListService {
 
   public emitEvent = new EventEmitter();
 
-  private listAnimals: Array<string> = [
-    "Hipopótamo",
-    "Elefante",
-    "Hiena",
-    "Zebra",
-    "Baleia"
-  ];
-
-  constructor(private httpClient: HttpClient) { }
-
-  private url: string = "http://localhost:3000";
   
+  constructor(private httpClient: HttpClient) { }
+  
+  private listAnimals: Array<string> = [];
+  private url: string = "http://localhost:3000";
+  public animalsEmit = new EventEmitter();
+
   // public animalsList() {
   //   return this.listAnimals;
   // }
@@ -35,7 +30,35 @@ export class AnimalsListService {
     )
   }
 
-  public animalsListAlert(value: string) {
-    return this.emitEvent.emit(value);
+  public addAnimalsList(value: string): Observable<AnimalsList> {
+    return this.httpClient.post<AnimalsList>(`${this.url}/animals-list`, {
+      nome: value
+    }).pipe(
+      response => response,
+      error => error
+    )
   }
+
+
+  public editAnimalsList(value: string, id: number): Observable<AnimalsList> {
+    return this.httpClient.put<AnimalsList>(`${this.url}/animals-list/${id}`, {
+      nome: value
+    }).pipe(
+      response => response,
+      error => error
+    )
+  }
+
+  public deleteAnimalsList(id: number): Observable<AnimalsList> {
+      return this.httpClient.delete<AnimalsList>(`${this.url}/animals-list/${id}`)
+      .pipe(
+        response => response,
+        error => error
+    )
+  }
+
+  public animalsListAlert(value: AnimalsList) {
+    return this.animalsEmit.emit(value);
+  }
+
 }

@@ -18,6 +18,7 @@ import { HeroesListComponent } from './heroes-list/heroes-list.component';
 import { AddHeroesComponent } from './add-heroes/add-heroes.component';
 import { AddSorvetesComponent } from './add-sorvetes/add-sorvetes.component';
 import { AddTimesComponent } from './add-times/add-times.component';
+import { AddAnimalsComponent } from './add-animals/add-animals.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { AddTimesComponent } from './add-times/add-times.component';
     AddHeroesComponent,
     AddSorvetesComponent,
     AddTimesComponent,
-    AddDocesComponent
+    AddDocesComponent,
+    AddAnimalsComponent
   ],
   exports: [
     NewComponentComponent,
@@ -51,7 +53,8 @@ import { AddTimesComponent } from './add-times/add-times.component';
     AddHeroesComponent,
     AddSorvetesComponent,
     AddTimesComponent,
-    AddDocesComponent
+    AddDocesComponent,
+    AddAnimalsComponent
   ],
   imports: [
     CommonModule,

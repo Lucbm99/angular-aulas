@@ -32,6 +32,7 @@ import { Component, OnInit } from '@angular/core';
     <app-food-add></app-food-add>
     <app-food-list></app-food-list>
     <app-forms></app-forms>-->
+    <app-add-animals></app-add-animals>
     <app-animals-list></app-animals-list><hr>
     <app-add-times></app-add-times>
     <app-teams-list></app-teams-list><hr>

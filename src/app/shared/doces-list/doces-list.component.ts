@@ -26,4 +26,25 @@ export class DocesListComponent implements OnInit {
     )
   }
 
+  public editDoces(value: string, id: number) {
+    this._docesService.editDoces(value, id).subscribe(
+      res => { 
+        return console.log(res)
+      },
+      error => error,
+    )
+  }
+
+  public deleteDoces(id: number) {
+    this._docesService.deleteDoces(id).subscribe(
+      response => {
+        this.docesList = this.docesList.filter(
+          doce => {
+            return doce.id !== id
+          }
+        )
+      },
+      error => error
+    )
+  }
 }

@@ -1,6 +1,13 @@
 <h1>Lista de times</h1>
 <ul *ngFor="let item of listTeams">
     <li>
-        Nome do time: {{ item.nome }}<br>
+        <input 
+            type="text"
+            [(ngModel)]="item.nome"
+            (keyup)="editTimes(item.nome, item.id)"
+        >
+        <button (click)="deleteTimes(item.id)">
+            Excluir
+        </button>
     </li>
 </ul>

@@ -19,9 +19,33 @@ export class AnimalsListComponent implements OnInit {
       error => error
     );
   
-    // this._animalsList.emitEvent.subscribe(
-    //   response => alert(`Adicionou => ${response}`)
-    // );
+    this._animalsList.animalsEmit.subscribe(
+      response => {
+        alert(`Adicionou => ${response.nome}`);
+        return this.animalsList.push(response)
+      }
+    );
   }
 
+  public editAnimalsList(value: string, id: number) {
+    this._animalsList.editAnimalsList(value, id).subscribe(
+      response => {
+        return console.log(response)
+      },
+      error => error
+    )
+  }
+
+  public foodListDelete(id: number) {
+    this._animalsList.deleteAnimalsList(id).subscribe(
+      response => {
+        this.animalsList = this.animalsList.filter(
+          item => {
+            return id !== item.id
+          }
+        )
+      },
+      error => error
+    )
+  }
 }
